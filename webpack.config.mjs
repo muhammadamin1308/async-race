@@ -48,7 +48,6 @@ export default (env, argv) => {
       new HtmlWebpackPlugin({
         template: './src/index.html',
         filename: 'index.html',
-        favicon: './src/assets/favicon.ico',
       }),
     ],
     devtool: isProduction ? 'source-map' : 'eval-source-map',
@@ -58,7 +57,7 @@ export default (env, argv) => {
       },
       historyApiFallback: true,
       compress: true,
-      port: 3000,
+      port: 3001,
       hot: true,
       open: true,
     },
@@ -68,7 +67,7 @@ export default (env, argv) => {
         cacheGroups: {
           vendor: {
             test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
+            filename: 'vendor.js',
             chunks: 'all',
           },
         },

@@ -1,0 +1,40 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "extends": [
+    "airbnb-base",
+    "airbnb-typescript/base",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["@typescript-eslint", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "import/prefer-default-export": "off",
+    "import/no-default-export": "error",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-param-reassign": ["error", { "props": false }],
+    "class-methods-use-this": "off",
+    "max-len": ["error", { "code": 100, "ignoreComments": true }]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+} 

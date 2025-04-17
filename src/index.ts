@@ -1,6 +1,6 @@
 import './assets/styles/main.css';
-import { startApp } from './App';
+import { initRouter } from './utils/router';
 
 document.addEventListener('DOMContentLoaded', () => {
-  startApp();
+  initRouter('root');
 });

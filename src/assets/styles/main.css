@@ -1,0 +1,54 @@
+body{
+    background-color: black;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.top-panel{
+    margin: 10px 0;
+    height: 200px;
+}
+
+.form-input{
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 7px 10px;
+    border: none;
+    border-radius: .5em;
+    background-color: #b4bddc;
+}
+
+.color-input{
+    /* padding: 1px 10px; */
+    width: 50px;
+    height: 30px;
+    background-color: #b4bddc;
+}
+
+.car-item{
+    height: 100%;
+}
+
+.finish-line{
+    display: flex;
+    position: relative;
+    justify-content: end;
+}
+
+.car-track{
+    border-bottom:2px dotted white;
+}
+
+.svg{
+    position: absolute;
+    left: 0;
+    bottom: -9px;
+}
+
+.finish-flag{
+    font-size: 2em;
+    margin: 0;
+}

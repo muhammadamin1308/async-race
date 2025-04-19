@@ -1,0 +1,56 @@
+{
+  "garage": [
+    {
+      "id": "1",
+      "name": "Tesla Model S",
+      "color": "#00ff00"
+    },
+    {
+      "id": "2",
+      "name": "Tesla Model 3",
+      "color": "#ffffff"
+    },
+    {
+      "id": "3",
+      "name": "Tesla Model X",
+      "color": "#250abc"
+    },
+    {
+      "id": "4",
+      "name": "Tesla Model Y",
+      "color": "#250abc"
+    },
+    {
+      "id": "5",
+      "name": "Tesla Cybertruck",
+      "color": "#250abc"
+    },
+    {
+      "id": "6",
+      "name": "Bugatti Chiron",
+      "color": "#250abc"
+    },
+    {
+      "id": "7",
+      "name": "Mclaren R1",
+      "color": "#250abc"
+    },
+    {
+      "id": "8",
+      "name": "Koenigsegg Agera RS ",
+      "color": "#250abc"
+    },
+    {
+      "id": "9",
+      "name": "Chevrolet Matiz",
+      "color": "#250abc"
+    }
+  ],
+  "winners": [
+    {
+      "id": "1",
+      "wins": 2,
+      "time": 10.5
+    }
+  ]
+}

@@ -18,7 +18,6 @@ export function initRouter(containerId: string = 'app'): void {
 
     const route = window.location.hash.slice(2) || 'garage';
     const handler = routes[route];
-    console.log(handler);
     if (handler) {
       handler(container);
     } else {

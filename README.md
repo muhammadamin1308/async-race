@@ -10,3 +10,6 @@ npm run lint:fix
 Format your code:
 npm run format
 
+Start the Server:
+json-server db.json --port 3000
+

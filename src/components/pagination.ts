@@ -1,5 +1,5 @@
 import { renderPage, getTotalCount } from "@/views/garage";
-
+import { getCars } from "@/api/cars-api";
 let page = 1;
 const limit = 7;
 
@@ -8,12 +8,11 @@ export async function paginatePage() {
     const nextPage = document.getElementById('next-page')
 
     async function fetchPage() {
-        const response = await fetch(`http://localhost:3000/garage?_page=${page}&_limit=${limit}`);
-        console.log(response.url)
-        const data = await response.json();
+        const response = await getCars(page, limit);
+        console.log(response.cars)
+        const data = response.cars;
         renderPage(data)
     }
-
 
     nextPage?.addEventListener('click', async () => {
         const total = await getTotalCount();
@@ -32,4 +31,3 @@ export async function paginatePage() {
     await fetchPage()
 }
 
-    

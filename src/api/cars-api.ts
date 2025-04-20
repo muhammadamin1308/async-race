@@ -11,15 +11,18 @@ export interface CarId extends Car{
 
 
 // Get all cars
-export async function getCars(page: number, limit: number): Promise<{cars: CarId[], total: number}> {
-    const response = await fetch(`${BASE_URL}garage?_page=${page}&_limit=${limit}`);
-    return response.json();
+export async function getCars(page: number = 1, limit: number = 7): Promise<{ cars: CarId[]; total: number }> {
+    const response = await fetch(`${BASE_URL}garage/`);
+    const cars = await response.json();
+    const total = cars.length;
+    return { cars, total };
 }
 
 // Get a car
 export async function getCar(id: number): Promise<CarId> { 
-    const response = await fetch(`${BASE_URL}garage/${id}`)
-    return response.json()
+    const response = await fetch(`${BASE_URL}garage/${id}`);
+    const data = await response.json();
+    return data;
 }                                   
 
 // Create a car
@@ -47,9 +50,8 @@ export async function updateCar(id:number, car: Car): Promise<CarId> {
 }
 
 // Delete Car
-export async function deleteCar(id: number) {
-    const response = await fetch(`${BASE_URL}/garage/${id}`, {
-      method: 'DELETE',
+export async function deleteCar(id: number | string): Promise<void> {
+    await fetch(`${BASE_URL}garage/${id}`, {
+        method: 'DELETE'
     });
-    return response.ok;
-  }
+}

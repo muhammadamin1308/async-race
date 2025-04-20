@@ -6,11 +6,6 @@
       "color": "#00ff00"
     },
     {
-      "id": "2",
-      "name": "Tesla Model 3",
-      "color": "#ffffff"
-    },
-    {
       "id": "3",
       "name": "Tesla Model X",
       "color": "#250abc"
@@ -42,6 +37,36 @@
     },
     {
       "id": "9",
+      "name": "Koenigsegg Agera RS ",
+      "color": "#250abc"
+    },
+    {
+      "id": "10",
+      "name": "Koenigsegg Agera RS ",
+      "color": "#250abc"
+    },
+    {
+      "id": "12",
+      "name": "Koenigsegg Agera RS ",
+      "color": "#250abc"
+    },
+    {
+      "id": "13",
+      "name": "Koenigsegg Agera RS ",
+      "color": "#250abc"
+    },
+    {
+      "id": "14",
+      "name": "Koenigsegg Agera RS ",
+      "color": "#250abc"
+    },
+    {
+      "id": "15",
+      "name": "Chevrolet Matiz",
+      "color": "#250abc"
+    },
+    {
+      "id": "16",
       "name": "Chevrolet Matiz",
       "color": "#250abc"
     }

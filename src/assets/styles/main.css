@@ -18,14 +18,14 @@ body{
     padding: 7px 10px;
     border: none;
     border-radius: .5em;
-    background-color: #b4bddc;
+    background-color: #b4dcb6;
 }
 
 .color-input{
     /* padding: 1px 10px; */
     width: 50px;
     height: 30px;
-    background-color: #b4bddc;
+    background-color: #b4dcbc;
 }
 
 .car-item{
@@ -35,7 +35,7 @@ body{
 .finish-line{
     display: flex;
     position: relative;
-    justify-content: end;
+    justify-content: space-between;
 }
 
 .car-track{
@@ -44,7 +44,7 @@ body{
 
 .svg{
     position: absolute;
-    left: 0;
+    left: 85px;
     bottom: -9px;
 }
 

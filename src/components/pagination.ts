@@ -9,7 +9,6 @@ export async function paginatePage() {
 
     async function fetchPage() {
         const response = await getCars(page, limit);
-        console.log(response.cars)
         const data = response.cars;
         renderPage(data)
     }

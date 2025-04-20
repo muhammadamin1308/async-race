@@ -6,14 +6,19 @@
       "color": "#00ff00"
     },
     {
+      "id": "2",
+      "name": "Tesla Model 3",
+      "color": "#701f40"
+    },
+    {
       "id": "3",
       "name": "Tesla Model X",
       "color": "#250abc"
     },
     {
-      "id": "4",
       "name": "Tesla Model Y",
-      "color": "#250abc"
+      "color": "#d618fb",
+      "id": "4"
     },
     {
       "id": "5",
@@ -62,11 +67,6 @@
     },
     {
       "id": "15",
-      "name": "Chevrolet Matiz",
-      "color": "#250abc"
-    },
-    {
-      "id": "16",
       "name": "Chevrolet Matiz",
       "color": "#250abc"
     }

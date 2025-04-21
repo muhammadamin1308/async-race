@@ -60,6 +60,9 @@ module.exports = (env, argv) => {
         open: true,
         host: '0.0.0.0',
         allowedHosts: 'all',
+        client: {
+          webSocketURL: 'auto://0.0.0.0:0/ws', // Fix WebSocket issues
+        },
       },
     }),
     optimization: {

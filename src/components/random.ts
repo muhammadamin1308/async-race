@@ -1,5 +1,5 @@
 import { createCar } from "@/api/cars-api";
-import { renderPage } from "@/views/garage";
+import { renderGarage } from "@/views/garage";
 
 export const carNames: string[] = [
     'Tesla Model S', 'Mercedes-Benz EQS', 'BMW i8', 'Audi e-tron GT', 'Lucid Air',
@@ -30,7 +30,7 @@ export default async function generateRandomCar(): Promise<void> {
             };
             await createCar(car);
         }
-        await renderPage([]);
+        await renderGarage();
     });
 }
 

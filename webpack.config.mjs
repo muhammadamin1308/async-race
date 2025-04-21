@@ -57,7 +57,7 @@ export default (env, argv) => {
       },
       historyApiFallback: true,
       compress: true,
-      port: 3001,
+      port: 8080,
       hot: true,
       open: true,
     },

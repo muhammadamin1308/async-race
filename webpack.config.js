@@ -48,16 +48,18 @@ module.exports = (env, argv) => {
       }),
     ],
     devtool: isProduction ? 'source-map' : 'eval-source-map',
-    devServer: {
-      static: {
-        directory: path.join(__dirname, 'dist'),
+    ...(isProduction ? {} : {
+      devServer: {
+        static: {
+          directory: path.join(__dirname, 'dist'),
+        },
+        historyApiFallback: true,
+        compress: true,
+        port: 3000,
+        hot: true,
+        open: true,
       },
-      historyApiFallback: true,
-      compress: true,
-      port: 3000,
-      hot: true,
-      open: true,
-    },
+    }),
     optimization: {
       splitChunks: {
         chunks: 'all',

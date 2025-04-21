@@ -5,8 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --mode production --config webpack.config.mjs",
-    "start:db": "json-server --watch db.json --port 3001",
+    "start": "npx serve -s dist",
+    "dev": "webpack serve --mode development --config webpack.config.mjs",
     "build": "webpack --mode production --config webpack.config.mjs",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts",

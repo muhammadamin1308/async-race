@@ -1,7 +1,7 @@
-import { getCars, getCar, createCar, updateCar, deleteCar, CarId } from "@/api/cars-api";
-import { paginatePage } from "@/components/pagination";
+import { getCars, createCar, updateCar, deleteCar, CarId } from "@/api/cars-api";
+// import { paginatePage } from "@/components/pagination";
 import generateRandomCar from "@/components/random";
-import { startEngine } from "@/components/carEngine";
+import { startEngine, stopEngine } from "@/views/race";
 
 export default function renderGarageView(container: HTMLElement): void {
   container.innerHTML = `
@@ -36,37 +36,29 @@ export default function renderGarageView(container: HTMLElement): void {
     <button class="btn-effect" id="prev-page">← Prev</button>
     <button class="btn-effect" id="next-page">Next →</button>
   </div>
-    `; 
-  setTimeout(() => renderPage([]), 0);
-  setTimeout(() => paginatePage(), 0);
+    `;
+  setTimeout(() => renderGarage(), 0);
+
   setTimeout(() => createCarHandler(), 0);
   setTimeout(() => updateCarHandler(), 0);
   setTimeout(() => deleteCarHandler(), 0);
   setTimeout(() => generateRandomCar(), 0);
-  setTimeout(() => startEngine(), 0);  
 }
 
 
-//cars counter
-export async function getTotalCount(): Promise<number> {
-  const response = await getCars(1, 1);
-  const total = response.total;
-  return total;
-}
+let currentPage = 1;
+const limit = 7;
 
-export async function renderPage(arg: any[]) {
-  const page = 1;
-  const limit = 7;
-  const response = await getCars(page, limit);
+export async function renderGarage(): Promise<void> {
+  const response = await getCars(currentPage, limit);
   const cars = response.cars;
-
-
+  const totalCount = response.totalCount;
 
   const carList = document.getElementById('car-list') as HTMLElement;
   const garageCount = document.getElementById('garage-count') as HTMLElement;
 
   carList.innerHTML = '';
-  garageCount.textContent = (await getTotalCount()).toLocaleString();
+  garageCount.textContent = (totalCount.toLocaleString());
 
   cars.forEach((car: CarId) => {
     const carItem = document.createElement('div');
@@ -90,9 +82,33 @@ export async function renderPage(arg: any[]) {
     `;
     carList.appendChild(carItem);
   });
+
+  const garagePage = document.getElementById('garage-page') as HTMLElement;
+  garagePage.textContent = currentPage.toString();
+
   handleSelectButton();
+   await paginationHandler();
 }
 
+async function paginationHandler(): Promise<void> {
+  document.getElementById('prev-page')?.addEventListener('click', async () => {
+    if (currentPage > 1) {
+      currentPage--;
+      await renderGarage();
+      document.getElementById('garage-page')!.textContent = String(currentPage);
+    }
+  });
+  
+  document.getElementById('next-page')?.addEventListener('click', async () => {
+    const total = (await getCars(currentPage, limit)).totalCount;
+    const totalPages = Math.ceil(total / limit);
+    if (currentPage < totalPages) {
+      currentPage++;
+      await renderGarage();
+    }
+  });
+}
+  
 
 export function createCarHandler(): void {
   const form = document.getElementById('create-form') as HTMLFormElement;
@@ -114,7 +130,7 @@ export function createCarHandler(): void {
     nameInput.value = '';
     colorInput.value = '#000000';
 
-    await renderPage([]);
+    await renderGarage();
   });
 }
 
@@ -127,7 +143,7 @@ export function updateCarHandler(): void {
 
     const nameInput = document.getElementById('update-name') as HTMLInputElement;
     const colorInput = document.getElementById('update-color') as HTMLInputElement;
-    
+
     const selectedButton = document.querySelector('.selected') as HTMLButtonElement;
     const carId = selectedButton.dataset.id;
 
@@ -141,7 +157,7 @@ export function updateCarHandler(): void {
     nameInput.value = '';
     colorInput.value = '#000000';
 
-    await renderPage([]);
+    await renderGarage();
   });
 }
 
@@ -172,7 +188,7 @@ export function deleteCarHandler(): void {
       }
       await deleteCar(carId);
       console.log(`Car with ID ${carId} has been deleted.`);
-      await renderPage([]);
+      await renderGarage();
     }
   });
 }

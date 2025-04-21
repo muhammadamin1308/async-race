@@ -11,17 +11,18 @@ export interface CarId extends Car{
 
 
 // Get all cars
-export async function getCars(page: number = 1, limit: number = 7): Promise<{ cars: CarId[]; total: number }> {
-    const response = await fetch(`${BASE_URL}garage/`);
-    const cars = await response.json();
-    const total = cars.length;
-    return { cars, total };
-}
+export async function getCars(page: number, limit: number): Promise<{ cars: CarId[]; totalCount: number }> {
+    const response = await fetch(`${BASE_URL}garage?_page=${page}&_limit=${limit}`);
+    const cars: CarId[] = await response.json();
+    const totalCount = parseInt(response.headers.get('X-Total-Count') || '0', 10);
+  
+    return { cars, totalCount };
+  }
 
 // Get a car
 export async function getCar(id: number): Promise<CarId> { 
     const response = await fetch(`${BASE_URL}garage/${id}`);
-    const data = await response.json();
+    const data: CarId = await response.json();
     return data;
 }                                   
 

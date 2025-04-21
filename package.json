@@ -5,8 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "serve -s dist",
-    "dev": "webpack serve --mode development --config webpack.config.mjs",
+    "start": "webpack serve --mode production --config webpack.config.mjs",
+    "start:db": "json-server --watch db.json --port 3001",
     "build": "webpack --mode production --config webpack.config.mjs",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts",
@@ -17,7 +17,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "serve": "^14.2.4",
     "ts-loader": "^9.5.2",
     "webpack": "^5.99.5",
     "webpack-cli": "^6.0.1",

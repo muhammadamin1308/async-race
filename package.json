@@ -6,12 +6,12 @@
   "main": "index.js",
   "scripts": {
     "start": "serve -s dist -l 8080",
-    "start:db": "json-server --watch db.json --port 3001",
     "build": "webpack --mode production --config webpack.config.mjs",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
-    "format": "npx prettier --write \"src/**/*.{ts,html,css}\""
+    "format": "npx prettier --write \"src/**/*.{ts,html,css}\"",
+    "dev": "webpack serve --mode production --config webpack.config.mjs"
   },
   "keywords": [],
   "author": "",

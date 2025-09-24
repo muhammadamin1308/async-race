@@ -1,7 +1,7 @@
 import { getCars, createCar, updateCar, deleteCar, CarId } from "@/api/cars-api";
 // import { paginatePage } from "@/components/pagination";
 import generateRandomCar from "@/components/random";
-import { startEngine, stopEngine } from "@/views/race";
+import { startEngine } from "@/components/carEngine";
 
 export default function renderGarageView(container: HTMLElement): void {
   container.innerHTML = `

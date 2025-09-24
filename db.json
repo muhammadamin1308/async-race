@@ -1,9 +1,9 @@
 {
   "garage": [
     {
-      "id": "1",
-      "name": "Tesla Model S",
-      "color": "#00ff00"
+      "name": "xc",
+      "color": "#376737",
+      "id": "1"
     },
     {
       "id": "2",
@@ -69,6 +69,11 @@
       "id": "15",
       "name": "Chevrolet Matiz",
       "color": "#250abc"
+    },
+    {
+      "id": "5bcc",
+      "name": "cc",
+      "color": "#00ff00"
     }
   ],
   "winners": [
